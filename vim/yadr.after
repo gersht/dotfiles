@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+echo ""
+echo "========================================"
+echo "Vim: Setting up symbolic links"
+echo "======================================="
+DIR=$(dirname $0)
+DIR=$(cd -P $DIR && pwd)
+
+ln -sf $DIR/vimrc.after ~/.vimrc.after
+ln -sf $DIR/vimrc.before ~/.vimrc.before
+
+echo "source $DIR/vundles.vim" >> ~/.vim/vundles.vim

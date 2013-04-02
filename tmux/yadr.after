@@ -19,7 +19,6 @@ echo ""
 echo "========================================"
 echo "Setting up .tmux.conf"
 echo "========================================"
-DIR=$(dirname "${BASH_SOURCE[0]}")
-DIR=$(cd -P $DIR && pwd)
 
-ln -sf "$DIR/tmux.conf" ~/.tmux.conf
+echo '# load my custom config' >> ~/.tmux.conf
+echo 'source $DOTF/tmux/tmux.conf' >> ~/.tmux.conf

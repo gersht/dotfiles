@@ -1,0 +1,19 @@
+#!/bin/zsh
+
+echo ""
+echo "========================================"
+echo "Setting up symbolic links"
+echo "======================================="
+DIR=$(dirname $0)
+DIR=$(cd -P $DIR && pwd)
+
+echo $DIR
+rm -rf ~/.zsh.before
+rm -rf ~/.zsh.after
+
+ln -sf $DIR/zsh/before ~/.zsh.before
+ln -sf $DIR/zsh/after ~/.zsh.after
+
+ln -sf $DIR/vim/vimrc.after ~/.vimrc.after
+ln -sf $DIR/vim/vimrc.before ~/.vimrc.before
+

@@ -1,0 +1,16 @@
+#!/bin/zsh
+
+if [ "`uname -s`" == "Darwin" ]; then
+  echo "=============================="
+  echo "Installing MacVim"
+  echo "=============================="
+  brew install macvim --with-cscope --override-system-vim --with-lua
+  cd /usr/bin
+  sudo mv vim vim-builtin
+  latest_vim=`/bin/ls -1 -d /usr/local/Cellar/macvim/7.* | tail -1`
+  sudo ln -s $latest_vim/bin/vim vim
+  echo "=============================="
+  echo "Installing ctags"
+  echo "=============================="
+  brew install ctags
+fi

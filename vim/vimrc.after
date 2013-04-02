@@ -1,0 +1,37 @@
+" " vim: foldmethod=marker
+
+" Settings {{{1
+set wildmode=full
+
+" Disable Yadr settings {{{1
+" the first line is to prevent vim from yelling about Y not being mapped
+map Y Y
+unmap Y
+
+" Color Fixes {{{1
+hi Folded ctermbg=0
+
+" Commands {{{1
+command! W :w
+
+
+" Keymappings {{{1
+map <space> 20j
+vmap <space> 20j
+map - 20k
+map <backspace> zc
+
+map <tab> >gv
+map <s-tab> <gv
+
+map ,e :e <C-R>=expand("%:p:h") . $delimiter <cr>
+map ,E :read <C-R>=expand("%:p:h") . $delimiter <cr>
+map ,vf :tabe ~/.dotfiles/vim/vimrc.after<cr>
+
+nnoremap \l :silent !tput clear<cr>:redraw!<cr>
+
+noremap \t= :Tab /=<cr>
+noremap \t: :Tab /:\zs<cr>
+
+
+
