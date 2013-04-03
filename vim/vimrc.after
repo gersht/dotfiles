@@ -33,13 +33,28 @@ map `m :CtrlPMRUFiles<cr>
 map <tab> >gv
 map <s-tab> <gv
 
-map ,e :e <C-R>=expand("%:p:h") . '/' <cr>
-map ,E :read <C-R>=expand("%:p:h") . '/' <cr>
-map ,vf :tabe ~/.dotfiles/vim/vimrc.after<cr>
+map ,ee :e <C-R>=expand("%:p:h") . '/' <cr>
+map ,ep :read <C-R>=expand("%:p:h") . '/' <cr>
+map ,ev :tabe ~/.dotfiles/vim/vimrc.after<cr>
 
 nnoremap \l :silent !tput clear<cr>:redraw!<cr>
 
 noremap \t= :Tab /=<cr>
 noremap \t: :Tab /:\zs<cr>
 
+map ,er :w<CR>:call RunCurrentFile()<CR>
 
+
+imap <f2> <c-o>:call ToggleHebrew()<cr>
+map <f2> :call ToggleHebrew()<cr>
+imap <c-_> <c-o>:call ToggleHebrew()<cr>
+
+func! ToggleHebrew()
+  if &rl
+    set norl
+    set keymap=
+  else
+    set rl
+    set keymap=hebrew
+  end
+endfunc

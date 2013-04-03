@@ -46,4 +46,5 @@ alias cf='/bin/ls -1 | wc -l'
 alias bw='convert -colors 2'
 
 alias mya='vim $DOTF/zsh/after/aliases.zsh'
-
+alias ff='find . -iname'
+unalias sp
