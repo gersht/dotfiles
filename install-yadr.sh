@@ -13,3 +13,4 @@ cd ~/.yadr && rake install
 
 source zsh/yadr.after
 source vim/yadr.after
+source tmux/yadr.after

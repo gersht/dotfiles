@@ -3,6 +3,9 @@
 " Settings {{{1
 set wildmode=full
 
+" use 'ag' instead of ack
+" let g:ackprg = 'ag --nogroup --nocolor --column'
+
 " Disable Yadr settings {{{1
 " the first line is to prevent vim from yelling about Y not being mapped
 map Y Y
@@ -21,17 +24,20 @@ vmap <space> 20j
 map - 20k
 map <backspace> zc
 
+map `` :CtrlPBufTag<cr>
+map `t :CtrlPTag<cr>
+map `m :CtrlPMRUFiles<cr>
+
 map <tab> >gv
 map <s-tab> <gv
 
-map ,e :e <C-R>=expand("%:p:h") . $delimiter <cr>
-map ,E :read <C-R>=expand("%:p:h") . $delimiter <cr>
+map ,e :e <C-R>=expand("%:p:h") . '/' <cr>
+map ,E :read <C-R>=expand("%:p:h") . '/' <cr>
 map ,vf :tabe ~/.dotfiles/vim/vimrc.after<cr>
 
 nnoremap \l :silent !tput clear<cr>:redraw!<cr>
 
 noremap \t= :Tab /=<cr>
 noremap \t: :Tab /:\zs<cr>
-
 
 

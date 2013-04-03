@@ -3,8 +3,10 @@ Bundle 'elentok/mailr.vim'
 Bundle 'elentok/run.vim'
 Bundle 'elentok/plaintasks.vim'
 Bundle 'elentok/alternate-spec.vim'
-Bundle 'elentok/supertagger'
-map <f8> :SuperTagger<cr>
+" Bundle 'elentok/supertagger'
+" map <f8> :SuperTagger<cr>
+
+map \e :w<CR>:call RunCurrentFile()<CR>
 
 Bundle 'elentok/spec-runner.vim'
 let g:spec_runner_use_vimux=1
