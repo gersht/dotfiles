@@ -56,3 +56,8 @@
 
 * count number of lines
   wc -l
+
+* special html signs
+
+  &rsaquo; (right small arrow)
+
