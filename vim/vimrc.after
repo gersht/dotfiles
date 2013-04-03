@@ -11,6 +11,8 @@ set wildmode=full
 map Y Y
 unmap Y
 
+au! BufWritePost *.coffee
+
 " Color Fixes {{{1
 hi Folded ctermbg=0
 
