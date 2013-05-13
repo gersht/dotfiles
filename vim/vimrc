@@ -61,7 +61,7 @@ endif
 
 " }}}1
 
-source $vimfiles/vundles.vim
+source $vimfiles/bundles.vim
 source $vimfiles/settings.vim
 source $vimfiles/functions.vim
 source $vimfiles/keys.vim

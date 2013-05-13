@@ -35,11 +35,20 @@ install_symlinks() {
   symlink "$DOTF/vim/pylintrc" ~/.pylintrc
 }
 
-install_vundle() {
+remove_vundle() {
+  if [ -e $DOTF/vim/bundle/vundle ]; then
+    bullet "Removing vundle"
+    cd $DOTF/vim/bundle
+    rm -rf vundle
+    success "done"
+  fi
+}
+
+install_neo_bundle() {
   cd ~/.vim
-  git_clone http://github.com/gmarik/vundle.git bundle/vundle
-  bullet "Running BundleInstall... "
-  vim +BundleInstall +qall
+  git_clone http://github.com/Shougo/neobundle.vim bundle/neobundle.vim
+  bullet "Running NeoBundleInstall... "
+  vim +NeoBundleInstall +qall
   success "done"
 }
 
@@ -54,6 +63,26 @@ compile_youcompleteme() {
     )
   fi
 }
+
+#compile_vimproc() {
+  #bullet "Compiling vimproc... "
+  #cd $DOTF/vim/bundle/vimproc
+
+  #os="unix"
+  #if [[ "$OS" == "mac" ]]; then os="mac"; fi
+
+  #if [[ -e autoload/vimproc_${os}.so ]]; then
+    #info 'Already compiled.'
+  #else
+    #make -f make_${os}.mak
+    #if [ $? -eq 0 ]; then
+      #success "done"
+    #else
+      #error "failed"
+      #exit 1
+    #fi
+  #fi
+#}
 
 install_utils() {
   npm_install vimspec
@@ -75,7 +104,9 @@ else
   fi
 
   install_symlinks
-  install_vundle
+  remove_vundle
+  install_neo_bundle
   compile_youcompleteme
+  #compile_vimproc
   install_utils
 fi
